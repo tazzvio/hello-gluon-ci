@@ -33,7 +33,7 @@ jobs:
       #     gluon-license: ${{ secrets.GLUON_LICENSE }}
 
       - name: Gluon Build
-        run: mvn -Pios client:build client:package
+        run: mvn -Pios -DskipIOSSigning=true client:build client:package
 
       - name: Copy native clients to staging
         run: cp -r target/client/arm64-ios/HelloGluon.ipa staging
